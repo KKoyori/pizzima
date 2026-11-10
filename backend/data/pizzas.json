@@ -40,5 +40,12 @@
     "description": "Tomate, mozzarella, jambon, œuf, pliée en deux",
     "price": 11,
     "image": "🌙"
+  },
+  {
+    "id": 7,
+    "name": "Chorizo",
+    "description": "Tomate, mozzarella, chorizo",
+    "price": 11,
+    "image": "🌶️"
   }
 ]

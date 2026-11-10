@@ -1,6 +1,6 @@
 import cors from "cors";
 import express, { type ErrorRequestHandler } from "express";
-import { findAllPizzas, findPizzaById } from "./pizzas.js";
+import { findAllPizzas, findPizzaById, createPizza, updatePizza, deletePizza, parsePizzaBody } from "./pizzas.js";
 
 const PORT = 8080;
 
@@ -46,6 +46,58 @@ app.get("/api/pizzas/:id", (request, response) => {
 });
 
 // 👉 Étape 2 : POST, PUT et DELETE sur /api/pizzas
+// POST /api/pizzas - Création
+app.post("/api/pizzas", (request, response) => {
+  const pizzaData = parsePizzaBody(request.body);
+
+  if (!pizzaData) {
+    return response.status(400).json({ message: "Données de la pizza invalides." });
+  }
+
+  const createdPizza = createPizza(pizzaData);
+  return response.status(201).json(createdPizza);
+});
+
+// PUT /api/pizzas/:id - Modification
+app.put("/api/pizzas/:id", (request, response) => {
+  const id = Number(request.params.id);
+
+  if (isNaN(id)) {
+    return response.status(400).json({ message: "L'id fourni est invalide." });
+  }
+
+  const pizzaData = parsePizzaBody(request.body);
+
+  if (!pizzaData) {
+    return response.status(400).json({ message: "Données de la pizza invalides." });
+  }
+
+  const updatedPizza = updatePizza(id, pizzaData);
+
+  if (!updatedPizza) {
+    return response.status(404).json({ message: "Pizza non trouvée." });
+  }
+
+  return response.json(updatedPizza);
+});
+
+// DELETE /api/pizzas/:id - Suppression
+app.delete("/api/pizzas/:id", (request, response) => {
+  const id = Number(request.params.id);
+
+  if (isNaN(id)) {
+    return response.status(400).json({ message: "L'id fourni est invalide." });
+  }
+
+  const deleted = deletePizza(id);
+
+  if (!deleted) {
+    return response.status(404).json({ message: "Pizza non trouvée." });
+  }
+
+  return response.status(204).send();
+});
+
 // 👉 Étape 4 : POST /api/orders
 
 // Aucune route n'a répondu : c'est un 404.
