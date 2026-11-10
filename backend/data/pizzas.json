@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "Margherita",
+    "description": "Tomate, mozzarella, basilic",
+    "price": 8.5,
+    "image": "🍕"
+  },
+  {
+    "id": 2,
+    "name": "Reine",
+    "description": "Tomate, mozzarella, jambon, champignons",
+    "price": 10.5,
+    "image": "👑"
+  },
+  {
+    "id": 3,
+    "name": "Quatre fromages",
+    "description": "Mozzarella, gorgonzola, chèvre, parmesan",
+    "price": 11.5,
+    "image": "🧀"
+  },
+  {
+    "id": 4,
+    "name": "Végétarienne",
+    "description": "Tomate, mozzarella, poivrons, oignons, olives",
+    "price": 10,
+    "image": "🥬"
+  },
+  {
+    "id": 5,
+    "name": "Auvergnate",
+    "description": "Crème, bleu d'Auvergne, lardons, pommes de terre",
+    "price": 12.5,
+    "image": "🏔️"
+  },
+  {
+    "id": 6,
+    "name": "Calzone",
+    "description": "Tomate, mozzarella, jambon, œuf, pliée en deux",
+    "price": 11,
+    "image": "🌙"
+  }
+]
